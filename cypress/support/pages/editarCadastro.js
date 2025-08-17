@@ -14,22 +14,12 @@ Cypress.Commands.add('botaoEditar', () => {
 })
 
 Cypress.Commands.add('editandoDados', () => {
-    
-    const nome = faker.person.firstName()
-    const sobrenome = faker.person.lastName()
-    const email = faker.internet.email()
-    const idade = faker.string.numeric(2)
-    const salario = faker.string.numeric(5)
-    const departamento = faker.person.jobType()
-
-    Cypress.env('EMAIL_VALIDACAO', email,{log: false})
-
-    cy.get(FORM_NAME).clear().type(nome, {log: false})
-    cy.get(FORM_LAST_NAME).clear().type(sobrenome, {log: false})
-    cy.get(FORM_EMAIL).clear().type(email, {log: false})
-    cy.get(FORM_AGE).clear().type(idade, {log: false})
-    cy.get(FORM_SALARY).clear().type(salario, {log: false})
-    cy.get(FORM_DEPARTMENT).clear().type(departamento, {log: false})
+    cy.get(FORM_NAME).clear().type(Cypress.env('random.user').name, {log: false})
+    cy.get(FORM_LAST_NAME).clear().type(Cypress.env('random.user').lastName, {log: false})
+    cy.get(FORM_EMAIL).clear().type(Cypress.env('random.user').email, {log: false})
+    cy.get(FORM_AGE).clear().type(Cypress.env('random.user').age)
+    cy.get(FORM_SALARY).clear().type(Cypress.env('random.user').salary, {log: false})
+    cy.get(FORM_DEPARTMENT).clear().type(Cypress.env('random.user').department)
 })
 
 Cypress.Commands.add('finalizarCadastroEditado', () => {
@@ -44,5 +34,5 @@ Cypress.Commands.add('carregarUsuario', () => {
 })
 
 Cypress.Commands.add('validarEdicao', () => {
-    cy.get('.rt-tbody').should('contain', Cypress.env('EMAIL_VALIDACAO'),{log: false})
+    cy.get('.rt-tbody').should('contain', (Cypress.env('random.user').age))
 })

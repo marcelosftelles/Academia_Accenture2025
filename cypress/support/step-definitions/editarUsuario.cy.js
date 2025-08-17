@@ -3,7 +3,7 @@ import { Given, When, And, Then, Before, After } from 'cypress-cucumber-preproce
 When('o usuário clica no botão Editar referente ao seu cadastro', () => {
     cy.carregarUsuario()
     cy.botaoEditar()
-    
+    cy.gerarUsuario()
     
 }) 
 

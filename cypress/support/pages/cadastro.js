@@ -29,7 +29,7 @@ Cypress.Commands.add('finalizaCadastro', () => {
 })
 
 Cypress.Commands.add('validarCadastro', () => {
-    cy.get(FORM_VALIDATION).should('contain', Cypress.env('random.user').email, {log: false})
+    cy.get(FORM_VALIDATION).should('contain', Cypress.env('random.user').age)
 })
 
 //PRONTO
