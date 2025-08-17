@@ -109,10 +109,4 @@ npm install
 ## 👨‍💻 Autor
 
 Desenvolvido por **Marcelo Telles**  
-Projeto criado com finalidade de **treinamento** e **demonstração** de testes automatizados com Cypress e Cucumber.
-
----
-
-## 📄 Licença
-
-Este projeto é distribuído apenas para fins educacionais. Consulte o autor para mais informações sobre direitos de uso.
+Projeto criado com finalidade de **treinamento** e **demonstração** de testes automatizados com Cypress e Cucumber para o processo seletivo Accenture ACADEMY QE.
