@@ -1,6 +1,5 @@
 const BTN_EXCLUIR = '#delete-record-3'
 
-const VALIDAR_EXCLUSAO = ''
 
 
 Cypress.Commands.add('excluirUsuario', () => {
@@ -8,7 +7,7 @@ Cypress.Commands.add('excluirUsuario', () => {
 })
 
 Cypress.Commands.add('confirmarExclusao', () => {
-  cy.get('.rt-tbody').should('not.contain', 'kierra@example.com')
+  cy.get('.rt-tbody').should('not.contain', '29')
 })
 
 

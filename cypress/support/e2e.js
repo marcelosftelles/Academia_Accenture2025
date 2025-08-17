@@ -16,10 +16,10 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import './pages/cadastro'
-import './pages/editarCadastro'
-import './pages/excluirCadastro'
+import './pages/editarCadastro.js'
+import './pages/excluirCadastroExistente.js'
 import './step-definitions/global.cy.js'
-import './pages/excluirUsuarioExistente'
+import './pages/excluirCadastroNovo.js'
 
 
 // cypress/support/e2e.js
