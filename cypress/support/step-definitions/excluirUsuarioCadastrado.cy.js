@@ -10,5 +10,5 @@ And('clica no botão Excluir referente ao seu cadastro', () => {
 })
 
 Then('ele não deve mais ver seu cadastro na Web Table', () => {
-  
+  cy.confirmaExclusaoCadastrado()
 })

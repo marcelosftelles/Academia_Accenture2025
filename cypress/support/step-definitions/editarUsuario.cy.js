@@ -12,7 +12,7 @@ And('preenche os campos com novos dados válidos', () => {
 })
 
 And('clica no botão Submit', () => {
-    cy.finalizarCadastroEditado()
+    cy.finalizarCadastroEditado(),{timeout: 400}
 })
 
 Then('ele deve ver os dados atualizados corretamente na Web Table', () => {

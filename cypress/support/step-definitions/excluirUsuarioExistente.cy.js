@@ -8,7 +8,7 @@ When('o usuário clica no botão Excluir referente ao cadastro escolhido', () =>
 
 
 Then('ele não deve mais ver seu cadastro na Web Table', () => {
-
+    cy.confirmarExclusao()
 })
 
     

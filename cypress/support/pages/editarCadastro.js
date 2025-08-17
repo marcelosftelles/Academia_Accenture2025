@@ -1,6 +1,6 @@
-import { faker } from "@faker-js/faker"
 
-const BTN_EDIT = '#edit-record-3'
+const {faker} = require('@faker-js/faker')
+const BTN_EDIT = '#edit-record-4'
 const FORM_NAME = '#firstName'
 const FORM_LAST_NAME = '#lastName'
 const FORM_EMAIL = '#userEmail'
@@ -8,20 +8,28 @@ const FORM_AGE = '#age'
 const FORM_SALARY = '#salary'
 const FORM_DEPARTMENT = '#department'
 const BTN_EDIT_SUBMIT = '#submit'
-const EMAIL_VALIDACAO = faker.internet.email()
-
 
 Cypress.Commands.add('botaoEditar', () => {
     cy.get(BTN_EDIT).click()
 })
 
 Cypress.Commands.add('editandoDados', () => {
-    cy.get(FORM_NAME).clear().type(faker.person.firstName(), {log: false})
-    cy.get(FORM_LAST_NAME).clear().type(faker.person.lastName(), {log: false})
-    cy.get(FORM_EMAIL).clear().type(EMAIL_VALIDACAO, {log: false})
-    cy.get(FORM_AGE).clear().type(faker.string.numeric(2), {log: false})
-    cy.get(FORM_SALARY).clear().type(faker.string.numeric(5), {log: false})
-    cy.get(FORM_DEPARTMENT).clear().type(faker.person.jobType(), {log: false})
+    
+    const nome = faker.person.firstName()
+    const sobrenome = faker.person.lastName()
+    const email = faker.internet.email()
+    const idade = faker.string.numeric(2)
+    const salario = faker.string.numeric(5)
+    const departamento = faker.person.jobType()
+
+    Cypress.env('EMAIL_VALIDACAO', email,{log: false})
+
+    cy.get(FORM_NAME).clear().type(nome, {log: false})
+    cy.get(FORM_LAST_NAME).clear().type(sobrenome, {log: false})
+    cy.get(FORM_EMAIL).clear().type(email, {log: false})
+    cy.get(FORM_AGE).clear().type(idade, {log: false})
+    cy.get(FORM_SALARY).clear().type(salario, {log: false})
+    cy.get(FORM_DEPARTMENT).clear().type(departamento, {log: false})
 })
 
 Cypress.Commands.add('finalizarCadastroEditado', () => {
@@ -32,10 +40,9 @@ Cypress.Commands.add('carregarUsuario', () => {
     cy.criarNovoUsuario()
     cy.inserindoDadosValidos()
     cy.finalizaCadastro()
+    cy.validarCadastro()
 })
 
-
-Cypress.Commands.add('validarEdicao', () =>{
-    
+Cypress.Commands.add('validarEdicao', () => {
+    cy.get('.rt-tbody').should('contain', Cypress.env('EMAIL_VALIDACAO'),{log: false})
 })
-

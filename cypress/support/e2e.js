@@ -19,6 +19,7 @@ import './pages/cadastro'
 import './pages/editarCadastro'
 import './pages/excluirCadastro'
 import './step-definitions/global.cy.js'
+import './pages/excluirUsuarioCadastrado'
 
 
 // cypress/support/e2e.js

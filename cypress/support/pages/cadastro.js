@@ -6,7 +6,7 @@ const FORM_AGE = '#age'
 const FORM_SALARY ='#salary'
 const FORM_DEPARTMENT ='#department'
 const BTN_SUBMIT = '#submit'
-const FORM_VALIDATION = ':nth-child(4) > .rt-tr > :nth-child(4)' //ajeitar isso
+const FORM_VALIDATION = '.rt-tbody' 
 
 Cypress.Commands.add('criarNovoUsuario', () => {
     cy.get(BTN_ADD).click()
@@ -29,7 +29,7 @@ Cypress.Commands.add('finalizaCadastro', () => {
 })
 
 Cypress.Commands.add('validarCadastro', () => {
-    cy.get(FORM_EMAIL).type(Cypress.env('random.user').email, {log: false})
+    cy.get(FORM_VALIDATION).should('contain', Cypress.env('random.user').email, {log: false})
 })
 
 //PRONTO
